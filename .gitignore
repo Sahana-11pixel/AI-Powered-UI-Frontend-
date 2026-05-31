@@ -26,3 +26,5 @@ yarn-error.log*
 # (Inherited from root .gitignore)
 .env
 
+# firebase config
+src/firebase.js
