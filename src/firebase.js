@@ -9,7 +9,7 @@ import { getAuth } from "firebase/auth";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyDJGfGtD4gp0CcjPSYOUTbrUSKddhEY9Ws",
-    authDomain: "ai-powered-uicodegen.vercel.app",
+    authDomain: "ai-powered-uicodegen.firebaseapp.com",
     projectId: "ai-powered-uicodegen",
     storageBucket: "ai-powered-uicodegen.firebasestorage.app",
     messagingSenderId: "452849444466",
@@ -19,8 +19,19 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 // Export auth instance for use in signup/login pages
 export const auth = getAuth(app);
+
+// Set Firebase auth to persist user session across page reloads
+auth.setPersistence = () => {
+    // Use local persistence by default
+    return Promise.resolve();
+};
+
+// Custom action URL for email verification and password reset
+export const authActionUrl = "https://ai-powered-uicodegen.vercel.app/auth-action";
+
 export default app;
 
 

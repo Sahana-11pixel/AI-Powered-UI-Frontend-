@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "firebase-public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/auth-action",
+        "destination": "/auth-redirect.html"
+      }
+    ]
+  }
+}
