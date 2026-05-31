@@ -9,7 +9,7 @@ import { getAuth } from "firebase/auth";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyDJGfGtD4gp0CcjPSYOUTbrUSKddhEY9Ws",
-    authDomain: "ai-powered-uicodegen.firebaseapp.com",
+    authDomain: "ai-powered-uicodegen.vercel.app",
     projectId: "ai-powered-uicodegen",
     storageBucket: "ai-powered-uicodegen.firebasestorage.app",
     messagingSenderId: "452849444466",
