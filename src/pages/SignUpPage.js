@@ -44,8 +44,7 @@ const SignUpPage = () => {
 
       await updateProfile(userCredential.user, { displayName: formData.name });
       const actionCodeSettings = {
-        url: `${window.location.origin}/login`,
-        handleCodeInApp: true,
+        url: `${window.location.origin}/login`
       };
       await sendEmailVerification(userCredential.user, actionCodeSettings);
       await auth.signOut();
