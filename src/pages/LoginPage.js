@@ -46,7 +46,7 @@ const LoginPage = () => {
 
       if (!refreshedUser.emailVerified) {
         const actionCodeSettings = {
-          url: `https://ai-powered-uicodegen.vercel.app/auth-action`,
+          url: `${window.location.origin}/login`,
           handleCodeInApp: true,
         };
         await sendEmailVerification(refreshedUser, actionCodeSettings);
@@ -91,7 +91,7 @@ const LoginPage = () => {
     setResetLoading(true);
     try {
       const actionCodeSettings = {
-        url: `https://ai-powered-uicodegen.vercel.app/auth-action`,
+        url: `${window.location.origin}/login`,
         handleCodeInApp: true,
       };
       await sendPasswordResetEmail(auth, resetEmail, actionCodeSettings);

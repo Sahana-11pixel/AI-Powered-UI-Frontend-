@@ -44,7 +44,7 @@ const SignUpPage = () => {
 
       await updateProfile(userCredential.user, { displayName: formData.name });
       const actionCodeSettings = {
-        url: `https://ai-powered-uicodegen.vercel.app/auth-action`,
+        url: `${window.location.origin}/login`,
         handleCodeInApp: true,
       };
       await sendEmailVerification(userCredential.user, actionCodeSettings);
