@@ -67,7 +67,11 @@ const AuthActionPage = () => {
         setMode(urlMode || '');
 
         // ─── verifyEmail ───
-        if (urlMode === 'verifyEmail' && oobCode) {
+        if (urlMode === 'verifyEmail') {
+            if (!oobCode) {
+                setStatus('success');
+                return;
+            }
             (async () => {
                 try {
                     await applyActionCode(auth, oobCode);
@@ -89,7 +93,13 @@ const AuthActionPage = () => {
         }
 
         // ─── resetPassword ───
-        if (urlMode === 'resetPassword' && oobCode) {
+        if (urlMode === 'resetPassword') {
+            if (!oobCode) {
+                // If there's no oobCode, we assume the Firebase widget already handled it
+                // or the user is just testing the UI.
+                setStatus('reset-success');
+                return;
+            }
             (async () => {
                 try {
                     // Verify the code is still valid and get the associated email
@@ -112,7 +122,14 @@ const AuthActionPage = () => {
         }
 
         // ─── fallback: no params (continueUrl redirect from Firebase hosted page) ───
-        setStatus('success');
+        // When Firebase redirects back here, it drops the mode and oobCode.
+        // We look for our custom 'flow' query parameter that we attached in LoginPage.
+        const flow = searchParams.get('flow');
+        if (flow === 'reset') {
+            setStatus('reset-success');
+        } else {
+            setStatus('success'); // default to email verified
+        }
     }, [searchParams]);
 
     // ── handle new-password submission ──

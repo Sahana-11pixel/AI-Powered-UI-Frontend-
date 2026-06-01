@@ -46,7 +46,7 @@ const LoginPage = () => {
 
       if (!refreshedUser.emailVerified) {
         const actionCodeSettings = {
-          url: `${window.location.origin}/login`,
+          url: `${window.location.origin}/auth-action?flow=verify`,
           handleCodeInApp: true,
         };
         await sendEmailVerification(refreshedUser, actionCodeSettings);
@@ -91,7 +91,7 @@ const LoginPage = () => {
     setResetLoading(true);
     try {
       const actionCodeSettings = {
-        url: `${window.location.origin}/login`,
+        url: `${window.location.origin}/auth-action?flow=reset`,
         handleCodeInApp: true,
       };
       await sendPasswordResetEmail(auth, resetEmail, actionCodeSettings);
