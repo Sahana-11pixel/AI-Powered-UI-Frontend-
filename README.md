@@ -1,7 +1,7 @@
 # UI Code Generator — Frontend App
 
-> **Note:** This repository contains the **Frontend** code for the UI Code Generator project. 
-> For the **Backend** Java/Spring Boot API, please visit: [Insert Backend Repository Link Here]
+> **Note:** This repository contains only the **Frontend** code for the UI Code Generator project. 
+> For the **Backend** Java/Spring Boot API, please visit: https://github.com/Sahana-11pixel/AI-Powered-UI.git
 
 A modern, responsive, and highly interactive React application that serves as the user interface for the UI Code Generator. It allows users to upload UI screenshots, generate code using Google Gemini AI via the backend, and instantly preview and edit the generated code in the browser.
 
