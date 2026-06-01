@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# UI Code Generator — Frontend App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **Note:** This repository contains the **Frontend** code for the UI Code Generator project. 
+> For the **Backend** Java/Spring Boot API, please visit: [Insert Backend Repository Link Here]
 
-## Available Scripts
+A modern, responsive, and highly interactive React application that serves as the user interface for the UI Code Generator. It allows users to upload UI screenshots, generate code using Google Gemini AI via the backend, and instantly preview and edit the generated code in the browser.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Modern Authentication Flow** — Complete custom UI for Firebase Email/Password authentication, including email verification and secure password resets.
+- **Interactive Workspace** — Features a resizable split-pane layout using `react-resizable-panels`.
+- **Integrated Code Editor** — Real-time frontend code editing powered by `@monaco-editor/react`.
+- **Live Sandboxed Preview** — Instant live preview of generated HTML/CSS/JS code rendered safely in an iframe.
+- **AI Chat Assistant** — Interactive chat window to converse with the AI, request changes, and refine the generated code.
+- **Beautiful UI & Animations** — Styled with Tailwind CSS, custom theming (Dark/Light mode), Radix UI primitives, and animated with Framer Motion.
+- **Project Dashboard** — View, manage, and load your past UI code generations.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧱 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Layer | Technology |
+|-------|-----------|
+| Library | React 18 |
+| Routing | React Router DOM v7 |
+| Styling | Tailwind CSS v3 + clsx + tailwind-merge |
+| UI Components | Radix UI + Custom Theme System |
+| Animations | Framer Motion |
+| Icons | Lucide React + React Icons |
+| Code Editor | Monaco Editor |
+| Forms & Validation | React Hook Form + Zod |
+| Authentication | Firebase Web SDK |
+| API Requests | Axios |
+| Build Tool | CRA + Craco (for Tailwind config) |
+| Hosting | Vercel (Ready) |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📁 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```text
+src/
+├── components/      # Reusable UI components (Buttons, Inputs, Modals, Route Guards)
+├── context/         # React Contexts (AuthContext, ThemeContext)
+├── hooks/           # Custom React hooks
+├── pages/           # Page level components (Login, Upload, Editor, Dashboard, etc.)
+├── services/        # API client configuration (Axios instances connecting to backend)
+├── utils/           # Helper functions
+├── firebase.js      # Firebase SDK initialization
+└── App.js           # Main application routing and providers
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## ⚙️ Setup & Local Development
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Prerequisites
+- Node.js (v18+ recommended)
+- `npm` or `yarn`
+- A running instance of the [UI Code Generator Backend]
+- A Firebase Web project configuration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Configure Environment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Copy the example environment file and fill in your details:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+cp .env.example .env
+```
 
-## Learn More
+Your `.env` should look something like this:
+```env
+REACT_APP_API_URL=http://localhost:8080/api
+REACT_APP_FIREBASE_API_KEY=your_api_key
+REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+# ... other Firebase config
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. Install Dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm install
+# or
+yarn install
+```
 
-### Code Splitting
+### 4. Run Locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm start
+# or
+yarn start
+```
 
-### Analyzing the Bundle Size
+The application will start in development mode at [http://localhost:3000](http://localhost:3000). The page will automatically reload when you make code changes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🚀 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This project is configured and ready for deployment on **Vercel**.
 
-### Advanced Configuration
+1. Connect your repository to Vercel.
+2. Ensure the framework preset is set to **Create React App**.
+3. Add the environment variables from your `.env` file into the Vercel project settings.
+4. Deploy!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The repository includes a `vercel.json` file which handles client-side routing rewrites automatically, ensuring that React Router paths work correctly on page refresh.
 
-### Deployment
+### Manual Build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+To build the app for production manually:
+```bash
+npm run build
+```
+This optimizes the build for the best performance and outputs to the `build` folder.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🧠 Key Design Decisions
+
+- **Craco over Ejecting** — We use `@craco/craco` to override Create React App's PostCSS configuration for Tailwind CSS without having to eject.
+- **Custom Auth UI** — We completely bypassed Firebase's default drop-in web UI to create a seamless, deeply integrated authentication experience that matches the app's dark/light premium aesthetic, including custom handling for deep links like password resets (`/auth-action`).
+- **Sandboxed Execution** — Generated code is executed inside a controlled `iframe` using `srcDoc` and `sandbox` attributes to prevent XSS vulnerabilities from AI-generated code.
