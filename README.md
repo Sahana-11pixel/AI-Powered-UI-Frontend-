@@ -3,7 +3,13 @@
 > **Note:** This repository contains only the **Frontend** code for the UI Code Generator project. 
 > For the **Backend** Java/Spring Boot API, please visit: https://github.com/Sahana-11pixel/AI-Powered-UI.git
 
-A modern, responsive, and highly interactive React application that serves as the user interface for the UI Code Generator. It allows users to upload UI screenshots, generate code using Google Gemini AI via the backend, and instantly preview and edit the generated code in the browser.
+A modern, responsive, and highly interactive React application that serves as the user interface for the UI Code Generator. It allows users to upload UI screenshots, generate code using Google Gemini AI, chat with the AI assistant, and manage their projects with ease.
+
+---
+
+## 🎥 Demo Video
+
+Check out the demo: https://youtu.be/wM4yooaUI7I?si=0-_KWzo1Cx39lSKU
 
 ---
 
@@ -122,5 +128,5 @@ This optimizes the build for the best performance and outputs to the `build` fol
 ## 🧠 Key Design Decisions
 
 - **Craco over Ejecting** — We use `@craco/craco` to override Create React App's PostCSS configuration for Tailwind CSS without having to eject.
-- **Custom Auth UI** — We completely bypassed Firebase's default drop-in web UI to create a seamless, deeply integrated authentication experience that matches the app's dark/light premium aesthetic, including custom handling for deep links like password resets (`/auth-action`).
+- **Custom Auth UI** — We completely bypassed Firebase's default drop-in web UI to create a seamless, deeply integrated authentication experience that matches the app's dark/light premium aesthetic.
 - **Sandboxed Execution** — Generated code is executed inside a controlled `iframe` using `srcDoc` and `sandbox` attributes to prevent XSS vulnerabilities from AI-generated code.
